@@ -1,0 +1,670 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Cena awansu Parysa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@400;600&display=swap">
+<style>
+/* Układ: wąska kolumna "księgi" na pergaminie; pasterz = oliwka (lewa połowa osi), książę = burgund i złoto (prawa połowa). */
+:root{
+  --bg:#F1E8D2; --paper:#F8F1DE; --ink:#2A2216; --muted:#65583F; --line:#D5C79F;
+  --olive:#55662A; --olive-soft:#DFE2BF; --burg:#6B1A2D; --burg-soft:#EBD2D2;
+  --gold:#8F6B14; --gold-line:#B8923A; --sl:34%;
+  --disp:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --ui:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1D1913; --paper:#27221A; --ink:#EDE3CB; --muted:#B0A488; --line:#473E2A;
+    --olive:#A9BA62; --olive-soft:#343A1F; --burg:#D77E92; --burg-soft:#432029;
+    --gold:#D9B35C; --gold-line:#B08A32; --sl:64%; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1D1913; --paper:#27221A; --ink:#EDE3CB; --muted:#B0A488; --line:#473E2A;
+  --olive:#A9BA62; --olive-soft:#343A1F; --burg:#D77E92; --burg-soft:#432029;
+  --gold:#D9B35C; --gold-line:#B08A32; --sl:64%; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 var(--body);
+  padding-block:0 48px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--disp);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:700}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700}
+h3{font-size:1.5rem;font-weight:700}
+h4{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.ui{font-family:var(--ui)}
+.eyebrow{font:600 .85rem/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.tag{display:inline-block;font:600 .72rem/1 var(--ui);letter-spacing:.08em;text-transform:uppercase;padding:.3em .55em;border:1px solid currentColor;border-radius:3px;white-space:nowrap}
+.tag.myth{color:var(--gold)}
+.tag.model{color:var(--muted)}
+.meander{height:12px;background:var(--gold-line);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cpath d='M0 11H20M17 11V1H3V8H10V5' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") repeat-x;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cpath d='M0 11H20M17 11V1H3V8H10V5' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") repeat-x}
+header.hero{padding-block:40px 28px;display:grid;gap:18px}
+.lead{font-size:1.2rem;max-width:62ch}
+.thesis{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
+.thesis div{background:var(--paper);border:1px solid var(--line);padding:16px 18px;min-width:0}
+.thesis b{font-family:var(--ui);display:block;margin-bottom:4px}
+.thesis .same b{color:var(--muted)} .thesis .chg b{color:var(--burg)} .thesis .not b{color:var(--olive)}
+section{padding-block:40px 8px;display:grid;gap:20px}
+section>header{display:grid;gap:8px;max-width:70ch}
+.sub{color:var(--muted)}
+.panel{background:var(--paper);border:1px solid var(--line);padding:20px;min-width:0}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.cols>*{min-width:0}
+/* mit */
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.timeline li{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--olive);padding:14px 16px;display:grid;gap:6px;align-content:start}
+.timeline li.after{border-top-color:var(--burg)}
+.timeline li.rec{border-top-color:var(--gold-line)}
+.timeline .when{font:600 .8rem/1 var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.timeline p{font-size:.98rem}
+.note{border-left:4px solid var(--gold-line);padding:6px 0 6px 14px;max-width:72ch}
+/* kontrolki */
+button,select,input,textarea{font:inherit}
+.btn{font:600 .95rem/1 var(--ui);background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);padding:.7em 1em;cursor:pointer;border-radius:3px;min-height:44px}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.primary{background:var(--burg);border-color:var(--burg);color:var(--paper)}
+:root[data-theme="dark"] .btn.primary{color:#1D1913}
+.btn.sm{padding:.45em .75em;min-height:36px;font-size:.88rem}
+:focus-visible{outline:3px solid var(--gold-line);outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid var(--ink)}
+.tabs button{font:600 1rem/1.2 var(--ui);background:transparent;color:var(--muted);border:1.5px solid transparent;border-bottom:0;padding:.8em 1.1em;cursor:pointer;min-height:48px}
+.tabs button[aria-selected="true"]{background:var(--paper);color:var(--ink);border-color:var(--ink);margin-bottom:-2px;padding-bottom:calc(.8em + 2px)}
+.view-title{margin-bottom:6px}
+/* suwak */
+.slider{display:grid;gap:12px}
+.slider .row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between;font-family:var(--ui)}
+.slider .row b{font-size:1.1rem}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;margin:0;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:12px;border:1px solid var(--ink);background:linear-gradient(90deg,var(--olive-soft) 50%,var(--burg-soft) 50%)}
+input[type=range]::-moz-range-track{height:12px;border:1px solid var(--ink);background:linear-gradient(90deg,var(--olive-soft) 50%,var(--burg-soft) 50%)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:30px;margin-top:-10px;background:var(--gold-line);border:2px solid var(--ink);border-radius:2px}
+input[type=range]::-moz-range-thumb{width:18px;height:28px;background:var(--gold-line);border:2px solid var(--ink);border-radius:2px}
+.stagechips{display:flex;flex-wrap:wrap;gap:8px}
+.stagechips button{font:600 .85rem/1.2 var(--ui);background:transparent;color:var(--ink);border:1px solid var(--line);padding:.5em .7em;cursor:pointer;min-height:40px;border-radius:3px}
+.stagechips button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.stagechips button.pre{border-bottom:3px solid var(--olive)}
+.stagechips button.post{border-bottom:3px solid var(--burg)}
+.stagebox{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:760px){.stagebox{grid-template-columns:1fr}}
+.stagebox h4{margin:8px 0 6px;font-size:1.4rem}
+.profile{display:grid;gap:5px;font-family:var(--ui);font-size:.92rem;align-content:start}
+.profile>b{font-size:1rem;margin-bottom:2px}
+.bar{display:grid;grid-template-columns:minmax(0,13em) minmax(60px,1fr) 2.2em;gap:8px;align-items:center}
+.bar span.n{overflow-wrap:anywhere;line-height:1.2}
+.bar .tr{height:10px;background:var(--bg);border:1px solid var(--line)}
+.bar .tr i{display:block;height:100%;background:var(--olive)}
+.bar.pr .tr i{background:var(--burg)}
+.bar output{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+/* wykresy */
+.chartbox{background:var(--paper);border:1px solid var(--line);padding:12px 12px 8px;min-width:0}
+.chartbox svg{display:block}
+.ax{fill:var(--muted);font:13px var(--ui)}
+.axs{font-size:12px}
+.axt{fill:var(--ink);font:600 13px var(--ui)}
+.rg{font:700 12px var(--ui);letter-spacing:.12em}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.chip{display:inline-flex;align-items:center;gap:8px;font:.88rem/1.2 var(--ui);border:1px solid var(--line);padding:.4em .65em;background:var(--bg);cursor:pointer;min-height:36px;border-radius:3px;user-select:none}
+.chip input{width:16px;height:16px;margin:0;accent-color:var(--burg)}
+.chip:not(.on){opacity:.55}
+.chip .sw{display:inline-block;width:26px;height:0;border-top:3px solid hsl(var(--h) 52% var(--sl))}
+.g-res .sw{border-top-style:dashed}.g-amb .sw{border-top-style:dotted;border-top-width:4px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;align-items:center;font-family:var(--ui);font-size:.9rem;color:var(--muted)}
+.formula{font:.95rem/1.5 var(--ui);color:var(--muted);margin-top:8px}
+.formula code{font-family:'Cambria Math',Georgia,serif;font-size:1.05em;color:var(--ink)}
+.legend-note{font:.85rem/1.4 var(--ui);color:var(--muted);margin-top:6px}
+.groups{display:grid;gap:26px}
+.grp h3{margin-bottom:2px}
+.grp>p{font:.92rem/1.4 var(--ui);color:var(--muted);margin-bottom:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);padding:12px;display:grid;gap:6px;align-content:start;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.card h4{font-size:1.1rem}
+.card .vals{font:.85rem/1.3 var(--ui);color:var(--muted)}
+details>summary{cursor:pointer;font:600 .9rem/1.3 var(--ui);color:var(--burg);padding:6px 0;list-style:none;min-height:32px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";display:inline-block;width:1em}
+details[open]>summary::before{content:"▾ "}
+:root[data-theme="dark"] details>summary{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) details>summary{color:var(--gold)}}
+.card details p,.crow-body p{font-size:.95rem}
+/* Δ */
+.crows{display:grid;gap:0;border:1px solid var(--line);background:var(--paper)}
+.crows details{border-bottom:1px solid var(--line)}
+.crows details:last-child{border-bottom:0}
+.crow{display:grid;grid-template-columns:minmax(0,14em) minmax(120px,1fr) 3em minmax(0,11em);gap:12px;align-items:center;padding:8px 12px;font-family:var(--ui);color:var(--ink);cursor:pointer;list-style:none}
+.crow::before{display:none}
+.crow .nm{font-weight:600;line-height:1.25}
+.crow .trk{position:relative;height:18px;background:var(--bg);border:1px solid var(--line)}
+.crow .trk::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;border-left:2px solid var(--ink)}
+.crow .trk i{position:absolute;top:2px;bottom:2px;background:var(--burg)}
+.crow .trk i.neg{background:var(--olive)}
+.crow .dv{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.crow .tg{font-size:.82rem;color:var(--muted);line-height:1.2}
+.crow-body{padding:4px 14px 14px;display:grid;gap:8px;max-width:78ch}
+.axis-note{display:flex;justify-content:space-between;font:600 .8rem/1 var(--ui);color:var(--muted);padding:0 12px 8px;letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:640px){
+  .crow{grid-template-columns:minmax(0,1fr) 3em;grid-template-areas:"nm dv" "trk trk" "tg tg"}
+  .crow .nm{grid-area:nm}.crow .dv{grid-area:dv}.crow .trk{grid-area:trk}.crow .tg{grid-area:tg}
+}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.summary div{border:1px solid var(--line);background:var(--paper);padding:12px 14px;font-family:var(--ui)}
+.summary b{display:block;font:700 1.9rem/1 var(--disp);margin-bottom:4px}
+.summary .b1 b{color:var(--olive)} .summary .b2 b{color:var(--burg)} .summary .b3 b{color:var(--gold)}
+/* edytor */
+.erow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr) auto;gap:10px 16px;align-items:end;padding:12px 0;border-bottom:1px solid var(--line);font-family:var(--ui);font-size:.92rem}
+.erow:last-child{border-bottom:0}
+.erow .en{align-self:center;font-size:1rem;line-height:1.25}
+.erow label{display:grid;gap:2px;min-width:0}
+.erow label span{display:flex;justify-content:space-between;color:var(--muted)}
+.erow output{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.erow select,.add select,.add input[type=text],.add input[type=number],.add textarea,.notes textarea{width:100%;min-height:44px;padding:.5em .6em;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:3px;font-family:var(--ui);font-size:.95rem}
+.erow label.s input{accent-color:var(--olive)}.erow label.p input{accent-color:var(--burg)}
+@media (max-width:860px){.erow{grid-template-columns:1fr 1fr}.erow .en{grid-column:1/-1}}
+@media (max-width:480px){.erow{grid-template-columns:1fr}}
+.add{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;font-family:var(--ui);font-size:.92rem}
+.add label{display:grid;gap:4px;min-width:0}
+.add .wide{grid-column:1/-1}
+.add textarea{min-height:72px;resize:vertical}
+.ideas{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.err{color:var(--burg);font:600 .9rem var(--ui);min-height:1.2em}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.cmpchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.cmpnotes{display:grid;gap:12px;margin-top:14px}
+.cmpnotes div{border-left:4px solid var(--gold-line);padding-left:12px}
+/* interpretacje */
+.interp{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.interp article{background:var(--paper);border:1px solid var(--line);padding:16px 18px;display:grid;gap:6px;align-content:start}
+.interp h4{color:var(--burg)}
+:root[data-theme="dark"] .interp h4{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .interp h4{color:var(--gold)}}
+.interp p{font-size:.98rem}
+.questions{display:grid;gap:22px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--burg);padding:18px 20px;display:grid;gap:10px}
+.q h3{font-size:clamp(1.4rem,3vw,1.9rem);font-style:italic}
+.q textarea{min-height:96px;resize:vertical}
+.q label{font:600 .85rem var(--ui);color:var(--muted)}
+.method{border-top:2px solid var(--ink);padding-top:14px;margin-top:36px;font:.95rem/1.5 var(--ui);color:var(--muted);max-width:80ch}
+.method strong{color:var(--ink)}
+.printonly{display:none}
+table.pt{width:100%;border-collapse:collapse;font:12px/1.35 var(--ui)}
+table.pt th,table.pt td{border:1px solid #999;padding:4px 6px;text-align:left}
+table.pt td.n{text-align:right}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* druk A4 */
+@page{size:A4;margin:14mm}
+@media print{
+  :root:root:root{--bg:#fff;--paper:#fff;--ink:#222;--muted:#555;--line:#bbb;--olive:#55662A;--olive-soft:#E6E9CC;--burg:#6B1A2D;--burg-soft:#F0DCDC;--gold:#8F6B14;--gold-line:#B8923A;--sl:34%;color-scheme:light}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:11pt;padding:0;background:#fff}
+  .noprint,.tabs,.presets,.chip input,.chip:not(.on),.stagechips,.hint,.add,#editorSec,.ideas,#cmpChips{display:none!important}
+  .view[hidden]{display:block!important}
+  .view{break-inside:auto;margin-top:14px}
+  .chartbox,.card,.crows,.q,.interp article,.panel{break-inside:avoid}
+  .grid3{grid-template-columns:1fr 1fr}
+  section{padding-block:18px 0;break-inside:auto}
+  section.pb{break-before:page}
+  .printonly{display:block}
+  details>*:not(summary){display:block}
+  details>summary{display:none}
+  .crow{grid-template-columns:minmax(0,12em) 1fr 3em minmax(0,10em)}
+  .thesis,.timeline,.interp{grid-template-columns:1fr 1fr}
+  header.hero{padding-top:0}
+  textarea{border:1px solid #888!important;min-height:70px}
+}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Parys · mitologia i nauki społeczne</div>
+  <h1>Od pasterza do księcia. Cena awansu społecznego</h1>
+  <p class="lead">Parys jest tym samym człowiekiem przed rozpoznaniem i po nim. Zmienia się to, kim jest w oczach innych: jakimi zasobami dysponuje, czego od niego oczekują i co mu wolno. Ta strona pozwala porównać oba życia kategoria po kategorii i zobaczyć, że awans nie poprawia wszystkiego naraz.</p>
+  <div class="thesis">
+    <div class="same"><b>Nie zmienia się</b>Pochodzenie biologiczne: Parys od urodzenia jest synem Priama i Hekabe.</div>
+    <div class="chg"><b>Zmienia się</b>Uznany status, zasoby, przywileje, obowiązki i ograniczenia.</div>
+    <div class="not"><b>Nie rozstrzygamy</b>Które życie było lepsze. To zależy od tego, co uznamy za dobre życie.</div>
+  </div>
+  <div class="actions noprint">
+    <button class="btn" id="printBtn" type="button">Drukuj zestawienie (A4, PDF)</button>
+    <span class="hint ui sub" style="font-size:.9rem">Skrót: Ctrl+P (⌘P). W oknie druku wybierz A4 i „Zapisz jako PDF”. Wydruk obejmuje wszystkie trzy wykresy i tabelę ocen.</span>
+  </div>
+</header>
+<div class="meander" aria-hidden="true"></div>
+
+<section id="mit">
+  <header>
+    <span><span class="tag myth">Z mitu</span></span>
+    <h2>Co opowiadają przekazy</h2>
+    <p class="sub">Elementy opowieści, na których opiera się model. Starożytne źródła różnią się szczegółami i kolejnością niektórych wydarzeń, więc poniższy porządek jest uproszczeniem.</p>
+  </header>
+  <ol class="timeline">
+    <li><span class="when">Przed narodzinami</span><h4>Przepowiednia i porzucenie</h4><p>Hekabe spodziewa się dziecka, a przepowiednia (w wielu wersjach: sen o płonącej głowni) wiąże je z zagładą Troi. Priam każe porzucić noworodka na górze Ida.</p></li>
+    <li><span class="when">Dzieciństwo i młodość</span><h4>Wychowanie wśród pasterzy</h4><p>Dziecko przeżywa i dorasta w Troadzie, na górze Ida. Według jednej z wersji przez kilka dni karmi je niedźwiedzica, zanim znajdą je pasterze.</p></li>
+    <li><span class="when">Codzienność</span><h4>Stada i życie poza pałacem</h4><p>Parys pracuje przy stadach i utrzymuje się z pracy. Żyje z dala od dworu, w niewielkiej wspólnocie.</p></li>
+    <li><span class="when">Życie prywatne</span><h4>Ojnone</h4><p>W wielu przekazach łączy go związek z nimfą Ojnone. W niektórych wersjach Parys później ją opuszcza.</p></li>
+    <li class="rec"><span class="when">Punkt zwrotny</span><h4>Rozpoznanie i powrót</h4><p>Królewskie pochodzenie wychodzi na jaw (według jednej z wersji po zawodach w Troi) i rodzina Priama przyjmuje syna.</p></li>
+    <li class="after"><span class="when">Po rozpoznaniu</span><h4>Dwór, polityka i wojna</h4><p>Parys wchodzi w świat dynastycznych oczekiwań i polityki. Jego dalsze losy łączą się z konfliktem, który przynosi Troi zgubę.</p></li>
+  </ol>
+  <p class="note ui" style="font-size:.95rem"><span class="tag model">Model</span> Liczby na wykresach nie pochodzą z mitu. To hipotezy interpretacyjne, które można zmienić. Model nie ocenia warunków niemowlęcia: profil pasterza obejmuje cały czas przed rozpoznaniem.</p>
+</section>
+
+<section id="model" class="pb">
+  <header>
+    <span><span class="tag model">Model interpretacyjny</span></span>
+    <h2>Dwanaście funkcji jednego życia</h2>
+    <p class="sub">Każda kategoria to funkcja fᵢ(t) o wartościach od 0 do 10. Oś t jest symboliczna i nie oznacza dat. W momencie rozpoznania wartość przeskakuje z profilu pasterza na profil księcia. Wysoki wynik nie zawsze znaczy „dobrze”: presja i ryzyko to obciążenia, zasoby i autonomia to korzyści.</p>
+  </header>
+
+  <div class="panel slider">
+    <div class="row"><b id="tlabel">Etap</b><span class="sub" id="tval"></span></div>
+    <input type="range" id="t" min="0" max="100" step="1" value="30" aria-label="Etap życia Parysa">
+    <div class="stagechips" id="stagechips"></div>
+  </div>
+
+  <div class="panel stagebox" id="stagebox">
+    <div><span class="tag myth">Z mitu</span><h4 id="stTitle"></h4><p id="stTxt"></p></div>
+    <div class="profile" id="profile"></div>
+  </div>
+
+  <div>
+    <div class="tabs noprint" role="tablist" aria-label="Widoki wykresów">
+      <button role="tab" id="tabA" aria-selected="true" aria-controls="viewA" type="button">A. Wszystkie funkcje</button>
+      <button role="tab" id="tabB" aria-selected="false" aria-controls="viewB" type="button">B. Porównanie kategorii</button>
+      <button role="tab" id="tabC" aria-selected="false" aria-controls="viewC" type="button">C. Bilans przemiany</button>
+    </div>
+
+    <div class="view" id="viewA" role="tabpanel" aria-labelledby="tabA">
+      <h3 class="view-title" style="margin-top:18px">A. Wszystkie funkcje</h3>
+      <div class="presets noprint">
+        <span>Pokaż:</span>
+        <button class="btn sm" type="button" data-p="all">wszystkie</button>
+        <button class="btn sm" type="button" data-p="none">żadne</button>
+        <button class="btn sm" type="button" data-p="ben">korzyści z awansu</button>
+        <button class="btn sm" type="button" data-p="res">ograniczenia z awansu</button>
+        <button class="btn sm" type="button" data-p="amb">zależne od wartości</button>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="chartbox" id="chartA"></div>
+      <p class="legend-note">Linia ciągła: korzyść z awansu. Przerywana: ograniczenie z awansu. Kropkowana: kategoria zależna od przyjętych wartości. Najedź na kategorię w legendzie, aby wyróżnić jej linię.</p>
+      <p class="formula">fᵢ(t) = sᵢ dla t &lt; t₀ (pasterz) · fᵢ(t) = pᵢ dla t ≥ t₀ (książę), gdzie t₀ = 50 to rozpoznanie pochodzenia.</p>
+    </div>
+
+    <div class="view" id="viewB" role="tabpanel" aria-labelledby="tabB" hidden>
+      <h3 class="view-title" style="margin-top:18px">B. Porównanie kategorii</h3>
+      <p class="sub" style="margin-bottom:14px">Podział wynika z bieżących ocen: zmiana wartości może przenieść kategorię do innej grupy.</p>
+      <div class="groups" id="groupsB"></div>
+    </div>
+
+    <div class="view" id="viewC" role="tabpanel" aria-labelledby="tabC" hidden>
+      <h3 class="view-title" style="margin-top:18px">C. Bilans przemiany</h3>
+      <p class="sub" style="margin-bottom:12px">Δ = wartość księcia − wartość pasterza. Kliknij wiersz, aby zobaczyć możliwe przyczyny różnicy.</p>
+      <div class="summary" id="summaryC" style="margin-bottom:14px"></div>
+      <div class="axis-note"><span>◂ więcej u pasterza</span><span>więcej u księcia ▸</span></div>
+      <div class="crows" id="rowsC"></div>
+      <p class="legend-note">Liczba na osi pokazuje zmianę wartości, a nie jej ocenę moralną. Czy zmiana jest korzyścią, zależy od rodzaju kategorii: wzrost zasobów to korzyść, wzrost ryzyka to obciążenie. Sumy wszystkich różnic celowo nie liczymy. Wagi kategorii zależą od tego, co uznajemy za dobre życie.</p>
+    </div>
+  </div>
+</section>
+
+<section id="editorSec" class="pb">
+  <header>
+    <h2>Zmień oceny i dodaj własne kategorie</h2>
+    <p class="sub">Przesuń suwak, a wykresy zmienią się od razu. Wartości są hipotezami, więc uczeń może się z nimi nie zgodzić i wskazać powód.</p>
+  </header>
+  <div class="panel">
+    <div id="editor"></div>
+  </div>
+  <div class="panel">
+    <h3 style="margin-bottom:10px">Nowa kategoria</h3>
+    <form class="add" id="addForm" novalidate>
+      <label class="wide">Nazwa kategorii
+        <input type="text" id="nName" list="ideas" maxlength="60" placeholder="np. Dostęp do opieki">
+      </label>
+      <div class="wide ideas" id="ideas2"><span class="sub">Pomysły:</span></div>
+      <label>Ocena: pasterz (0–10)<input type="number" id="nS" min="0" max="10" step="0.5" value="5"></label>
+      <label>Ocena: książę (0–10)<input type="number" id="nP" min="0" max="10" step="0.5" value="5"></label>
+      <label class="wide">Jak rozumieć wyższą wartość?
+        <select id="nV">
+          <option value="gain">Wyższa wartość = korzyść</option>
+          <option value="load">Wyższa wartość = obciążenie</option>
+          <option value="open">Zależy od przyjętych wartości</option>
+        </select>
+      </label>
+      <label class="wide">Uzasadnienie
+        <textarea id="nWhy" placeholder="Dlaczego te oceny? Co różni oba życia w tej kategorii?"></textarea>
+      </label>
+      <div class="wide actions">
+        <button class="btn primary" type="submit">Dodaj kategorię</button>
+        <button class="btn" type="button" id="resetBtn">Przywróć wartości początkowe</button>
+        <span class="err" id="err" role="alert"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="cmp">
+  <header>
+    <h2>Zestaw własny: dwie lub trzy kategorie</h2>
+    <p class="sub">Wybierz do trzech kategorii i zestaw ich funkcji na jednym wykresie, na przykład zasoby, autonomię i prywatność.</p>
+  </header>
+  <div class="panel">
+    <div class="cmpchips" id="cmpChips"></div>
+    <div class="chartbox" id="chartCmp"></div>
+    <div class="cmpnotes" id="cmpNotes"></div>
+  </div>
+</section>
+
+<section id="interp" class="pb">
+  <header>
+    <span><span class="tag model">Interpretacja</span></span>
+    <h2>Jak czytać te wykresy</h2>
+    <p class="sub">Krótkie komentarze do pytań, które model stawia. Żaden z nich nie mówi, że jedno życie było lepsze.</p>
+  </header>
+  <div class="interp">
+    <article><h4>Bogactwo a wolność</h4><p>Majątek rozszerza to, co można kupić, zlecić i zorganizować. Nie gwarantuje jednak, że można z niego korzystać według własnego uznania. Książę ma więcej zasobów, a mniej swobody ich użycia, bo należą w dużej mierze do rodu i państwa.</p></article>
+    <article><h4>Pozycja społeczna a autonomia jednostki</h4><p>Pozycja mówi, jak inni traktują człowieka i czego od niego oczekują. Autonomia mówi, w jakim stopniu sam decyduje o własnym życiu. Obie wielkości mogą rosnąć razem, ale mogą też się rozchodzić, tak jak w modelu.</p></article>
+    <article><h4>Przywileje i obowiązki</h4><p>Wyższy status zwykle łączy się z oczekiwaniami wobec rodziny, wspólnoty i państwa. Przywilej bywa więc stroną tej samej umowy, w której są też powinności. Pasterz też ma obowiązki (wobec stada i własnego utrzymania), ale mniejszej skali.</p></article>
+    <article><h4>Wolność od przymusu i wolność do działania</h4><p>Pasterz ma więcej wolności od przymusu: nikt nie narzuca mu dworskich zasad. Książę ma więcej wolności do działania: może wiele zrobić, bo ma środki i ludzi. Jedna wolność nie zastępuje drugiej.</p></article>
+    <article><h4>Szczęście prywatne i odpowiedzialność za wspólnotę</h4><p>Decyzje pasterza dotykają głównie jego samego i bliskich. Decyzje księcia dotykają całego miasta. Rosnąca odpowiedzialność może być ciężarem, ale też źródłem sensu. Zależy to od wartości, które przyjmujemy.</p></article>
+    <article><h4>Pochodzenie, status i zakres wyborów</h4><p>Parys nie wybrał ani pochodzenia, ani porzucenia, ani powrotu. Status za każdym razem zmieniał mu listę dostępnych wyborów, choć nie zmieniał jego samego. Warto zapytać, które wybory były naprawdę jego własne.</p></article>
+  </div>
+</section>
+
+<section id="pytania">
+  <header><h2>Pytania do dyskusji</h2></header>
+  <div class="questions">
+    <div class="q"><h3>„Czy Parys, zostając księciem, stał się bardziej wolny, czy tylko bardziej wpływowy?”</h3>
+      <label for="note1">Twoja odpowiedź i dwa argumenty z wykresów</label><textarea id="note1" placeholder="Wskaż kategorie, na których opierasz odpowiedź."></textarea></div>
+    <div class="q"><h3>„Czy można obiektywnie określić, który etap jego życia był lepszy, nie ustalając wcześniej, co uznajemy za dobre życie?”</h3>
+      <label for="note2">Twoja odpowiedź i kryterium dobrego życia, które przyjmujesz</label><textarea id="note2" placeholder="Jakie kategorie ważysz najmocniej i dlaczego?"></textarea></div>
+  </div>
+</section>
+
+<section class="printonly" id="ptSec">
+  <header><h2>Zestawienie ocen</h2></header>
+  <div id="printTable"></div>
+</section>
+
+<p class="method"><strong>Informacja metodologiczna.</strong> Przedstawione wartości są umownym modelem interpretacyjnym, a nie pomiarami historycznymi. Oś czasu jest symboliczna. Starożytne przekazy o Parysie różnią się szczegółami i kolejnością wydarzeń.</p>
+</div>
+
+<script>
+(function(){
+'use strict';
+var PRINT=false, T0=50;
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var fmt=function(n){return String(n).replace('.',',')};
+var sgn=function(n){return (n>0?'+':n<0?'−':'')+fmt(Math.abs(n))};
+
+var DEFAULTS=[
+ {id:'zasoby',name:'Zasoby materialne',s:2,p:10,v:'gain',why:'Książę korzysta z majątku rodu i skarbca, pasterz dysponuje stadem i tym, co zarobi pracą. Zasoby księcia są jednak także zasobami dynastii i państwa, więc nie całkiem należą do niego.'},
+ {id:'komfort',name:'Komfort życia codziennego',s:3,p:9,v:'gain',why:'Pałac oferuje wygodne mieszkanie, jedzenie i obsługę, a szałas na stoku Idy wymaga codziennego wysiłku. Komfort nie jest jednak tym samym co zadowolenie z życia.'},
+ {id:'bezp',name:'Bezpieczeństwo bytowe',s:4,p:9,v:'gain',why:'Pasterz zależy od pogody, drapieżników i urodzaju. Dwór zapewnia pożywienie i ochronę. Ta kategoria dotyczy zaspokojenia potrzeb, a nie zagrożenia wojną (to osobna kategoria).'},
+ {id:'edu',name:'Dostęp do edukacji i kultury',s:3,p:8,v:'gain',why:'Dwór daje kontakt z ceremoniami, muzyką, poezją i polityką. Pasterze mają własną wiedzę o przyrodzie i zwierzętach, której ten model nie mierzy, dlatego pasterz nie dostaje zera.'},
+ {id:'wplyw',name:'Wpływ na innych ludzi',s:2,p:9,v:'gain',why:'Pasterz wpływa na wąski krąg ludzi. Książę uczestniczy w decyzjach rodziny królewskiej i może oddziaływać na sojusze oraz losy miasta. Wpływ jest też źródłem odpowiedzialności.'},
+ {id:'swoboda',name:'Swoboda przemieszczania się',s:9,p:5,v:'gain',why:'Pasterz wędruje po zboczach góry, choć jego trasę wyznaczają potrzeby stada. Książę podróżuje, ale zwykle z orszakiem i w sprawach państwowych, a każda wyprawa ma polityczne skutki.'},
+ {id:'autonomia',name:'Autonomia w podejmowaniu decyzji osobistych',s:8,p:4,v:'gain',why:'Pasterz sam układa dzień i związki, ale ogranicza go bieda. Książę decyduje o większych sprawach, lecz jego wybory osobiste (małżeństwo, sojusze) podlegają interesowi rodu.'},
+ {id:'prywatnosc',name:'Prywatność',s:9,p:3,v:'gain',why:'Mało kto obserwuje pasterza na odludziu. Książę pełni rolę publiczną: ma świadków, dwór i opinię, które widzą jego życie osobiste.'},
+ {id:'przyroda',name:'Bliskość przyrody',s:10,p:2,v:'open',why:'Dla jednych to źródło spokoju i wiedzy, dla innych brak wygód i bezpieczeństwa. Ocena zależy od przyjętych wartości, dlatego kategoria jest niejednoznaczna.'},
+ {id:'praca',name:'Obciążenie pracą fizyczną',s:9,p:3,v:'open',why:'Spadek wysiłku fizycznego to ulga, ale też mniej samodzielnej zaradności. Czy to zysk, zależy od tego, jak oceniamy pracę własnych rąk.'},
+ {id:'presja',name:'Presja społeczna i obowiązki dynastyczne',s:2,p:10,v:'open',why:'Dwór oczekuje od księcia zachowań zgodnych z rolą: reprezentowania rodu, posłuszeństwa wobec ojca, rytuałów. Obowiązki mogą przytłaczać, ale mogą też dawać poczucie sensu i przynależności.'},
+ {id:'ryzyko',name:'Ryzyko uwikłania w konflikt polityczny i wojnę',s:2,p:9,v:'load',why:'Pasterz bywa narażony na rabunek, ale rzadko jest stroną sporów. Książę jest osobą publiczną, a jego decyzje i związki mogą uruchamiać konflikty, które dotkną całego miasta.'}
+];
+var IDEAS=['Dostęp do opieki','Stabilność relacji','Prestiż społeczny','Możliwość wyboru przyszłości','Zależność od innych','Odpowiedzialność za zbiorowość'];
+var STAGES=[
+ {a:0,b:14,k:'Przepowiednia i porzucenie',t:'Hekabe spodziewa się dziecka, a przepowiednia wiąże je z zagładą Troi. Priam każe porzucić noworodka na górze Ida. Model nie ocenia warunków niemowlęcia, więc przypisuje mu profil pasterza.'},
+ {a:14,b:34,k:'Wychowanie na Idzie',t:'Dziecko ratują i wychowują pasterze w Troadzie. Parys dorasta wśród stad, z dala od pałacu.'},
+ {a:34,b:50,k:'Dorosłość pasterza i Ojnone',t:'Parys pracuje przy stadach i utrzymuje się z własnej pracy. W wielu przekazach łączy go związek z nimfą Ojnone.'},
+ {a:50,b:62,k:'Rozpoznanie i powrót',t:'Królewskie pochodzenie wychodzi na jaw, a rodzina Priama przyjmuje syna mimo dawnej przepowiedni. Przekazy różnią się co do okoliczności tego momentu.'},
+ {a:62,b:82,k:'Życie na dworze',t:'Parys wchodzi w świat dworu, dynastycznych oczekiwań i polityki. W niektórych wersjach opuszcza wtedy Ojnone.'},
+ {a:82,b:101,k:'Polityka i wojna',t:'Jego dalsze losy łączą się z konfliktem, który przynosi Troi zgubę. Książę ma wpływ na wydarzenia, ale też ponosi ich skutki.'}
+];
+var GN={ben:'Korzyść z awansu',res:'Ograniczenie z awansu',amb:'Zależne od wartości'};
+var GH={ben:['Korzyści wynikające z awansu','Kategorie, w których zmiana przynosi Parysowi więcej dobra albo mniej obciążenia.'],
+        res:['Ograniczenia wynikające z awansu','Kategorie, w których awans zabiera swobodę albo dokłada obciążenia.'],
+        amb:['Kategorie niejednoznaczne','Ocena zależy od przyjętych wartości albo zmiany nie ma.']};
+var VAL={gain:'Wyższa wartość = korzyść',load:'Wyższa wartość = obciążenie',open:'Zależy od przyjętych wartości'};
+
+var cats, vis, cmp, hl=null, t=30, counter=0, openB={}, openC={};
+function newCat(o){ var c=Object.assign({},o); c.h=Math.round((20+counter*137.5)%360); counter++; return c; }
+function reset(){ counter=0; cats=DEFAULTS.map(newCat); vis=new Set(cats.map(function(c){return c.id})); cmp=['zasoby','autonomia','prywatnosc']; }
+function grp(c){ if(c.v==='open')return 'amb'; var e=(c.v==='gain'?1:-1)*(c.p-c.s); return e>0?'ben':e<0?'res':'amb'; }
+function interp(c){ var d=c.p-c.s; if(c.v==='open')return d===0?'bez zmiany':'zmiana, której ocena zależy od przyjętych wartości';
+  if(d===0)return 'bez zmiany';
+  if(c.v==='gain')return d>0?'wzrost korzyści':'utrata korzyści';
+  return d>0?'wzrost obciążenia':'spadek obciążenia'; }
+function valAt(c,x){ return x>=T0?c.p:c.s; }
+function col(c){ return 'hsl('+c.h+' 52% var(--sl))'; }
+function dash(c){ var g=grp(c); return g==='res'?'8 5':g==='amb'?'2 5':'none'; }
+
+/* ---------- wykres ---------- */
+function chart(host,list,o){
+  o=o||{};
+  var small=!!o.small;
+  var W=PRINT?(small?320:680):Math.max(300,Math.floor(host.clientWidth-(small?0:24))||600);
+  var H=small?170:(W<560?360:430);
+  var m=small?{l:30,r:10,t:10,b:30}:{l:46,r:14,t:28,b:W<560?56:52};
+  var iw=W-m.l-m.r, ih=H-m.t-m.b;
+  var X=function(v){return m.l+v/100*iw}, Y=function(v){return m.t+(1-v/10)*ih};
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="'+esc(o.label||'Wykres')+'" style="max-width:100%;height:auto">';
+  s+='<rect x="'+m.l+'" y="'+m.t+'" width="'+(X(T0)-m.l)+'" height="'+ih+'" style="fill:var(--olive-soft)" opacity=".55"/>';
+  s+='<rect x="'+X(T0)+'" y="'+m.t+'" width="'+(m.l+iw-X(T0))+'" height="'+ih+'" style="fill:var(--burg-soft)" opacity=".6"/>';
+  var ticks=small?[0,5,10]:[0,1,2,3,4,5,6,7,8,9,10];
+  ticks.forEach(function(v){
+    s+='<line x1="'+m.l+'" x2="'+(m.l+iw)+'" y1="'+Y(v)+'" y2="'+Y(v)+'" style="stroke:var(--line)" stroke-width="1"/>';
+    s+='<text class="ax'+(small?' axs':'')+'" x="'+(m.l-7)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+v+'</text>';
+  });
+  s+='<line x1="'+m.l+'" x2="'+(m.l+iw)+'" y1="'+Y(0)+'" y2="'+Y(0)+'" style="stroke:var(--ink)" stroke-width="1.5"/>';
+  s+='<line x1="'+m.l+'" x2="'+m.l+'" y1="'+m.t+'" y2="'+Y(0)+'" style="stroke:var(--ink)" stroke-width="1.5"/>';
+  s+='<line x1="'+X(T0)+'" x2="'+X(T0)+'" y1="'+m.t+'" y2="'+Y(0)+'" style="stroke:var(--gold-line)" stroke-width="2" stroke-dasharray="6 4"/>';
+  var ly=Y(0)+(small?17:20);
+  s+='<text class="rg" x="'+((m.l+X(T0))/2)+'" y="'+ly+'" text-anchor="middle" style="fill:var(--olive)">PASTERZ</text>';
+  s+='<text class="rg" x="'+((X(T0)+m.l+iw)/2)+'" y="'+ly+'" text-anchor="middle" style="fill:var(--burg)">KSIĄŻĘ</text>';
+  if(!small){
+    s+='<text class="axt" x="'+X(T0)+'" y="'+(m.t-9)+'" text-anchor="middle">rozpoznanie pochodzenia</text>';
+    s+='<text class="ax" x="'+(m.l+iw/2)+'" y="'+(H-8)+'" text-anchor="middle">symboliczny przebieg życia Parysa (oś t, nie chronologia)</text>';
+    s+='<text class="ax" transform="translate(13 '+(m.t+ih/2)+') rotate(-90)" text-anchor="middle">natężenie cechy (0–10)</text>';
+  }
+  if(!list.length) s+='<text class="axt" x="'+(m.l+iw/2)+'" y="'+(m.t+ih/2)+'" text-anchor="middle">Włącz co najmniej jedną kategorię.</text>';
+  list.forEach(function(c){
+    var dim=o.hl&&o.hl!==c.id, w=(o.hl===c.id)?4:(small?2.6:2.4);
+    s+='<path d="M'+X(0)+' '+Y(c.s)+'H'+X(T0)+'V'+Y(c.p)+'H'+X(100)+'" fill="none" style="stroke:'+col(c)+'" stroke-width="'+w+'" stroke-dasharray="'+dash(c)+'" stroke-linejoin="round" opacity="'+(dim?.15:1)+'"/>';
+    if(small){
+      var a=Y(c.s)+(c.s>8?14:-5), b=Y(c.p)+(c.p>8?14:-5);
+      s+='<text class="axt axs" x="'+X(25)+'" y="'+a+'" text-anchor="middle">'+fmt(c.s)+'</text><text class="axt axs" x="'+X(75)+'" y="'+b+'" text-anchor="middle">'+fmt(c.p)+'</text>';
+    }
+  });
+  if(o.cursor){
+    s+='<line x1="'+X(t)+'" x2="'+X(t)+'" y1="'+m.t+'" y2="'+Y(0)+'" style="stroke:var(--ink)" stroke-width="1.5" opacity=".7"/>';
+    list.forEach(function(c){
+      if(o.hl&&o.hl!==c.id)return;
+      s+='<circle cx="'+X(t)+'" cy="'+Y(valAt(c,t))+'" r="'+(small?4:5)+'" style="fill:'+col(c)+';stroke:var(--paper)" stroke-width="2"/>';
+    });
+  }
+  s+='</svg>';
+  host.innerHTML=s;
+}
+
+/* ---------- widoki ---------- */
+function stageOf(x){ for(var i=0;i<STAGES.length;i++) if(x>=STAGES[i].a&&x<STAGES[i].b) return STAGES[i]; return STAGES[STAGES.length-1]; }
+function renderStageChips(){
+  var st=stageOf(t);
+  $('#stagechips').innerHTML=STAGES.map(function(s,i){
+    return '<button type="button" data-i="'+i+'" class="'+(s===st?'on ':'')+(s.a>=T0?'post':'pre')+'">'+esc(s.k)+'</button>';
+  }).join('');
+}
+function renderStage(){
+  var st=stageOf(t), after=t>=T0;
+  $('#tlabel').textContent=st.k;
+  $('#tval').textContent='t = '+t+' · '+(after?'profil księcia (po rozpoznaniu)':'profil pasterza (przed rozpoznaniem)');
+  $('#t').setAttribute('aria-valuetext',st.k+', '+(after?'książę':'pasterz'));
+  $('#stTitle').textContent=st.k; $('#stTxt').textContent=st.t;
+  var h='<b><span class="tag model">Model</span> Wartości na tym etapie: '+(after?'książę':'pasterz')+'</b>';
+  cats.forEach(function(c){ var v=valAt(c,t);
+    h+='<div class="bar '+(after?'pr':'')+'"><span class="n">'+esc(c.name)+'</span><span class="tr"><i style="width:'+v*10+'%"></i></span><output>'+fmt(v)+'</output></div>'; });
+  $('#profile').innerHTML=h;
+  renderStageChips();
+}
+function renderLegend(){
+  $('#legend').innerHTML=cats.map(function(c){
+    var on=vis.has(c.id);
+    return '<label class="chip g-'+grp(c)+(on?' on':'')+'" data-id="'+c.id+'"><input type="checkbox" '+(on?'checked':'')+'><i class="sw" style="--h:'+c.h+'"></i>'+esc(c.name)+'</label>';
+  }).join('');
+}
+function renderA(){ chart($('#chartA'),cats.filter(function(c){return vis.has(c.id)}),{cursor:true,hl:hl,label:'Wykres wszystkich funkcji'}); }
+
+function keepOpen(root,store,fn){
+  root.querySelectorAll('details[data-id]').forEach(function(d){store[d.dataset.id]=d.open;});
+  fn();
+  root.querySelectorAll('details[data-id]').forEach(function(d){ if(store[d.dataset.id]) d.open=true; });
+}
+function renderB(){
+  keepOpen($('#groupsB'),openB,function(){
+    var h='';
+    ['ben','res','amb'].forEach(function(g){
+      var l=cats.filter(function(c){return grp(c)===g});
+      h+='<div class="grp"><h3>'+GH[g][0]+' ('+l.length+')</h3><p>'+GH[g][1]+'</p><div class="grid3">';
+      l.forEach(function(c){
+        h+='<div class="card"><div class="top"><h4>'+esc(c.name)+'</h4></div><div class="host" data-id="'+c.id+'"></div>'
+          +'<div class="vals">Pasterz '+fmt(c.s)+' → książę '+fmt(c.p)+' · Δ '+sgn(c.p-c.s)+' · '+esc(interp(c))+'</div>'
+          +'<details data-id="'+c.id+'"><summary>Dlaczego ta różnica?</summary><p>'+esc(c.why||'Brak uzasadnienia.')+'</p></details></div>';
+      });
+      if(!l.length) h+='<p class="sub ui">Żadna kategoria nie należy teraz do tej grupy.</p>';
+      h+='</div></div>';
+    });
+    $('#groupsB').innerHTML=h;
+  });
+  drawB();
+}
+function drawB(){
+  document.querySelectorAll('#groupsB .host').forEach(function(el){
+    var c=cats.filter(function(x){return x.id===el.dataset.id})[0];
+    if(c) chart(el,[c],{small:true,cursor:true,label:'Funkcja: '+c.name});
+  });
+}
+function renderC(){
+  var n={ben:0,res:0,amb:0}; cats.forEach(function(c){n[grp(c)]++;});
+  $('#summaryC').innerHTML='<div class="b1"><b>'+n.ben+'</b>kategorie, w których awans przynosi korzyść</div>'
+    +'<div class="b2"><b>'+n.res+'</b>kategorie, w których awans ogranicza lub obciąża</div>'
+    +'<div class="b3"><b>'+n.amb+'</b>kategorie zależne od przyjętych wartości lub bez zmiany</div>';
+  var sorted=cats.slice().sort(function(a,b){return (b.p-b.s)-(a.p-a.s)});
+  keepOpen($('#rowsC'),openC,function(){
+    $('#rowsC').innerHTML=sorted.map(function(c){
+      var d=c.p-c.s, bar=d>=0?'left:50%;width:'+(d*5)+'%':'left:'+(50+d*5)+'%;width:'+(-d*5)+'%';
+      return '<details data-id="'+c.id+'"><summary class="crow"><span class="nm">'+esc(c.name)+'</span>'
+        +'<span class="trk"><i class="'+(d<0?'neg':'')+'" style="'+bar+'"></i></span><span class="dv">'+sgn(d)+'</span>'
+        +'<span class="tg">'+GN[grp(c)]+'</span></summary>'
+        +'<div class="crow-body"><p class="ui"><b>Pasterz '+fmt(c.s)+' → książę '+fmt(c.p)+'</b> · Δ = '+sgn(d)+' · '+esc(interp(c))+' ('+esc(VAL[c.v].toLowerCase())+').</p>'
+        +'<p>'+esc(c.why||'Brak uzasadnienia.')+'</p></div></details>';
+    }).join('');
+  });
+}
+function renderCmp(){
+  $('#cmpChips').innerHTML=cats.map(function(c){
+    var on=cmp.indexOf(c.id)>=0;
+    return '<label class="chip g-'+grp(c)+(on?' on':'')+'" data-id="'+c.id+'"><input type="checkbox" '+(on?'checked':'')+'><i class="sw" style="--h:'+c.h+'"></i>'+esc(c.name)+'</label>';
+  }).join('');
+  drawCmp();
+}
+function drawCmp(){
+  var l=cmp.map(function(id){return cats.filter(function(c){return c.id===id})[0]}).filter(Boolean);
+  chart($('#chartCmp'),l,{cursor:false,label:'Zestawienie wybranych funkcji'});
+  $('#cmpNotes').innerHTML=l.map(function(c){
+    return '<div><b class="ui"><i class="sw" style="display:inline-block;width:26px;border-top:3px '+(grp(c)==='res'?'dashed':grp(c)==='amb'?'dotted':'solid')+' hsl('+c.h+' 52% var(--sl));vertical-align:middle;margin-right:8px"></i>'+esc(c.name)+'</b> <span class="ui sub">· '+fmt(c.s)+' → '+fmt(c.p)+', Δ '+sgn(c.p-c.s)+'</span><p style="font-size:.95rem">'+esc(c.why||'Brak uzasadnienia.')+'</p></div>';
+  }).join('') || '<p class="sub ui">Wybierz co najmniej jedną kategorię.</p>';
+}
+function renderEditor(){
+  $('#editor').innerHTML=cats.map(function(c){
+    return '<div class="erow" data-id="'+c.id+'"><div class="en"><b>'+esc(c.name)+'</b>'+(c.custom?' <span class="tag model">własna</span>':'')+'</div>'
+     +'<label class="s"><span>Pasterz <output>'+fmt(c.s)+'</output></span><input type="range" min="0" max="10" step="0.5" value="'+c.s+'" data-k="s" aria-label="Pasterz: '+esc(c.name)+'"></label>'
+     +'<label class="p"><span>Książę <output>'+fmt(c.p)+'</output></span><input type="range" min="0" max="10" step="0.5" value="'+c.p+'" data-k="p" aria-label="Książę: '+esc(c.name)+'"></label>'
+     +'<label><span>Znaczenie wyższej wartości</span><select data-k="v" aria-label="Znaczenie wartości: '+esc(c.name)+'">'
+     +Object.keys(VAL).map(function(k){return '<option value="'+k+'"'+(c.v===k?' selected':'')+'>'+VAL[k]+'</option>'}).join('')+'</select></label>'
+     +(c.custom?'<button class="btn sm" type="button" data-del="1">Usuń</button>':'<span></span>')+'</div>';
+  }).join('');
+}
+function renderPrintTable(){
+  $('#printTable').innerHTML='<table class="pt"><thead><tr><th>Kategoria</th><th>Pasterz</th><th>Książę</th><th>Δ</th><th>Znaczenie wyższej wartości</th><th>Interpretacja</th></tr></thead><tbody>'
+   +cats.map(function(c){return '<tr><td>'+esc(c.name)+'</td><td class="n">'+fmt(c.s)+'</td><td class="n">'+fmt(c.p)+'</td><td class="n">'+sgn(c.p-c.s)+'</td><td>'+esc(VAL[c.v])+'</td><td>'+GN[grp(c)]+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p style="font:11px var(--ui);margin-top:6px">Wartości są hipotezami interpretacyjnymi (skala 0–10).</p>';
+}
+function activeView(){ var a=document.querySelector('.tabs [aria-selected="true"]'); return a?a.id.slice(3):'A'; }
+function renderViews(){
+  var v=activeView();
+  if(PRINT||v==='A') renderA();
+  if(PRINT||v==='B') renderB();
+  if(PRINT||v==='C') renderC();
+}
+function refresh(){ renderLegend(); renderStage(); renderViews(); renderCmp(); renderPrintTable(); }
+
+/* ---------- zdarzenia ---------- */
+$('#t').addEventListener('input',function(e){ t=+e.target.value; renderStage(); renderA(); if(!$('#viewB').hidden) drawB(); });
+$('#stagechips').addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b)return; var s=STAGES[+b.dataset.i];
+  t=Math.min(100,Math.round((s.a+Math.min(s.b,100))/2)); if(s.a===T0) t=T0; $('#t').value=t; renderStage(); renderA(); if(!$('#viewB').hidden) drawB();
+});
+document.querySelector('.tabs').addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b)return;
+  ['A','B','C'].forEach(function(k){
+    var on=('tab'+k)===b.id; $('#tab'+k).setAttribute('aria-selected',on); $('#view'+k).hidden=!on;
+  });
+  renderViews();
+});
+$('#legend').addEventListener('change',function(e){
+  var lab=e.target.closest('.chip'); if(!lab)return; var id=lab.dataset.id;
+  if(e.target.checked) vis.add(id); else vis.delete(id);
+  lab.classList.toggle('on',e.target.checked); renderA();
+});
+$('#legend').addEventListener('mouseover',function(e){ var l=e.target.closest('.chip'); var id=l?l.dataset.id:null; if(id!==hl){hl=id; renderA();} });
+$('#legend').addEventListener('mouseleave',function(){ if(hl){hl=null; renderA();} });
+$('#legend').addEventListener('focusin',function(e){ var l=e.target.closest('.chip'); hl=l?l.dataset.id:null; renderA(); });
+$('#legend').addEventListener('focusout',function(){ hl=null; renderA(); });
+document.querySelector('.presets').addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b)return; var p=b.dataset.p;
+  vis=new Set(cats.filter(function(c){return p==='all'||(p!=='none'&&grp(c)===p)}).map(function(c){return c.id}));
+  renderLegend(); renderA();
+});
+$('#editor').addEventListener('input',function(e){
+  var row=e.target.closest('.erow'); if(!row)return; var c=cats.filter(function(x){return x.id===row.dataset.id})[0]; var k=e.target.dataset.k;
+  if(k==='s'||k==='p'){ c[k]=+e.target.value; e.target.parentNode.querySelector('output').textContent=fmt(c[k]); } else if(k==='v'){ c.v=e.target.value; }
+  refresh();
+});
+$('#editor').addEventListener('click',function(e){
+  if(!e.target.dataset.del)return; var id=e.target.closest('.erow').dataset.id;
+  cats=cats.filter(function(c){return c.id!==id}); vis.delete(id); cmp=cmp.filter(function(x){return x!==id});
+  renderEditor(); refresh();
+});
+$('#cmpChips').addEventListener('change',function(e){
+  var lab=e.target.closest('.chip'); if(!lab)return; var id=lab.dataset.id;
+  if(e.target.checked){ cmp.push(id); if(cmp.length>3) cmp.shift(); } else cmp=cmp.filter(function(x){return x!==id});
+  document.querySelectorAll('#cmpChips .chip').forEach(function(l){ var on=cmp.indexOf(l.dataset.id)>=0; l.classList.toggle('on',on); l.querySelector('input').checked=on; });
+  drawCmp();
+});
+$('#ideas2').innerHTML+=IDEAS.map(function(s){return '<button type="button" class="btn sm" data-idea="'+esc(s)+'">'+esc(s)+'</button>'}).join('');
+$('#ideas2').addEventListener('click',function(e){ if(e.target.dataset.idea){ $('#nName').value=e.target.dataset.idea; $('#nName').focus(); } });
+$('#addForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var name=$('#nName').value.trim(), s=parseFloat($('#nS').value), p=parseFloat($('#nP').value);
+  if(!name){ $('#err').textContent='Wpisz nazwę kategorii.'; return; }
+  if(isNaN(s)||isNaN(p)||s<0||s>10||p<0||p>10){ $('#err').textContent='Oceny muszą mieścić się w skali od 0 do 10.'; return; }
+  $('#err').textContent='';
+  var c=newCat({id:'u'+Date.now(),name:name,s:s,p:p,v:$('#nV').value,why:$('#nWhy').value.trim()||'Uzasadnienie ucznia: brak.',custom:true});
+  cats.push(c); vis.add(c.id);
+  $('#nName').value=''; $('#nWhy').value='';
+  renderEditor(); refresh();
+});
+$('#resetBtn').addEventListener('click',function(){ reset(); $('#err').textContent='Przywrócono wartości początkowe.'; openB={}; openC={}; renderEditor(); refresh(); });
+
+var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ if(PRINT)return; renderViews(); drawCmp(); },120); });
+window.addEventListener('beforeprint',function(){ PRINT=true; renderViews(); drawCmp(); });
+window.addEventListener('afterprint',function(){ PRINT=false; renderViews(); drawCmp(); });
+$('#printBtn').addEventListener('click',function(){ try{ window.print(); }catch(err){} });
+
+reset(); renderEditor(); refresh();
+})();
+</script>
